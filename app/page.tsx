@@ -17,7 +17,8 @@ export default function Home() {
     const appId = "39d35fb1-31a6-411f-9f38-fb1cf209de42"; 
     
    // URLの最初が「app.rakuten.co.jp」になっているかチェック！
-    const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20220601?applicationId=${appId}&keyword=${encodeURIComponent(keyword)}&hits=10&formatVersion=2`;   try {
+    const url = `https://openapi.rakuten.co.jp/ichibams/api/IchibaItem/Search/20220601`;   
+    try {
         const res = await fetch(url);
         const data = await res.json();
         console.log("楽天からの生の声:", data); // これを足す！
