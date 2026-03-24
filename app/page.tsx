@@ -17,12 +17,12 @@ export default function Home() {
     const appId = "39d35fb1-31a6-411f-9f38-fb1cf209de42"; 
     
     // 2. URL（1行で書いても、バッククォート ` で囲めば大丈夫）
-    const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20220601?applicationId=${appId}&keyword=${encodeURIComponent(keyword)}&hits=10&formatVersion=2`;
+    const url = `https://openapi.rakuten.co.jpapp.rakuten.co.jp/services/api/IchibaItem/Search/20220601?applicationId=${appId}&keyword=${encodeURIComponent(keyword)}&hits=10&formatVersion=2`;
 
     try {
-      const res = await fetch(url);
-      const data = await res.json();
-
+        const res = await fetch(url);
+        const data = await res.json();
+        console.log("楽天からの生の声:", data); // これを足す！
       if (data.error) {
         setStatus(`楽天エラー：${data.error_description || data.error}`);
         return;
