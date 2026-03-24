@@ -16,9 +16,8 @@ export default function Home() {
     // 1. 画像にあったハイフン入りのIDをここに貼り付け！
     const appId = "39d35fb1-31a6-411f-9f38-fb1cf209de42"; 
     
-    // 【修正】日付の部分を「20220601」から「20260212」に変更します
-    const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20260212?applicationId=${appId}&keyword=${encodeURIComponent(keyword)}&hits=10&formatVersion=2`;
-    try {
+   // URLの最初が「app.rakuten.co.jp」になっているかチェック！
+    const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20220601?applicationId=${appId}&keyword=${encodeURIComponent(keyword)}&hits=10&formatVersion=2`;   try {
         const res = await fetch(url);
         const data = await res.json();
         console.log("楽天からの生の声:", data); // これを足す！
